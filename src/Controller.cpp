@@ -6,9 +6,9 @@ Controller::Controller(sf::RenderWindow &window, std::unique_ptr<Player> *player
                                                                                      m_players(players) {
     m_board.create();
     auto tr = m_board.getTopRightCorner();
-    m_lastChoosed[0] = tr->getColor();
+    m_lastChoosed[0] = tr->data->getColor();
     auto bl = m_board.getBottomLeftCorner();
-    m_lastChoosed[1] = bl->getColor();
+    m_lastChoosed[1] = bl->data->getColor();
     m_players[0]->setPad(bl);
     m_players[1]->setPad(tr);
     createColorBtns();
@@ -204,9 +204,9 @@ void Controller::lightPads() {
     if (dt > 0.5) {
         light = !light;
         for (auto &pad: *player_pads)
-            pad->setOutline(light);
+            pad.data->setOutline(light);
         for (auto &pad: *other_pads)
-            pad->setOutline(light);
+            pad.data->setOutline(light);
 
         clock.restart().asSeconds();
     }

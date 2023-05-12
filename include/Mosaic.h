@@ -1,17 +1,19 @@
+#pragma once
 #include "iostream"
 #include "Consts.h"
 #include "vector"
 #include "iostream"
 #include "Consts.h"
+#include "MosaicNode.h"
 
 template<typename T>
 class Mosaic {
 private:
-    std::vector<T> data;
+    std::vector<MosaicNode<T>*> data;
 public:
     ~Mosaic() = default;
     // Add element to the data structure
-    void add(T element) {
+    void add(T *element) {
         data.push_back(element);
     }
 

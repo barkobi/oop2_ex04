@@ -43,7 +43,7 @@ endif()
 
 if(WIN32)
 
-    add_executable (${CMAKE_PROJECT_NAME} src/Controller.cpp include/Controller.h src/Board.cpp include/Board.h src/Pad.cpp include/Pad.h src/Mosaic.cpp include/Mosaic.h src/ColorBtn.cpp include/ColorBtn.h src/Player/Player.cpp include/Player/Player.h src/ResourceManager.cpp include/ResourceManager.h src/Player/RandomPlayer.cpp include/Player/RandomPlayer.h src/Player/GreedyPlayerSmallDistance.cpp include/Player/GreedyPlayerSmallDistance.h src/Player/GreedyPlayerLongDistance.cpp include/Player/GreedyPlayerLongDistance.h src/Player/UserPlayer.cpp include/Player/UserPlayer.h src/mainMenu.cpp include/mainMenu.h)
+    add_executable (${CMAKE_PROJECT_NAME} src/Controller.cpp include/Controller.h src/Board.cpp include/Board.h src/Pad.cpp include/Pad.h src/Mosaic.cpp include/Mosaic.h src/ColorBtn.cpp include/ColorBtn.h src/Player/Player.cpp include/Player/Player.h src/ResourceManager.cpp include/ResourceManager.h src/Player/RandomPlayer.cpp include/Player/RandomPlayer.h src/Player/GreedyPlayerSmallDistance.cpp include/Player/GreedyPlayerSmallDistance.h src/Player/GreedyPlayerLongDistance.cpp include/Player/GreedyPlayerLongDistance.h src/Player/UserPlayer.cpp include/Player/UserPlayer.h src/mainMenu.cpp include/mainMenu.h include/MosaicNode.cpp include/MosaicNode.h include/Shapes.cpp include/Shapes.h)
 
     target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE $<$<CONFIG:DEBUG>:-fsanitize=address>)
 

@@ -11,7 +11,7 @@ Colors GreedyPlayerSmallDistance::play(Colors color, Colors *lastChoosed) {
     count_colors[lastChoosed[1]] = (NUM_OF_ROWS*NUM_OF_COLS)*-1;
 
     for(auto pad : m_pads)
-        pad->sumNeighborsColors(count_colors);
+        pad.sumNeighborsColors(count_colors);
 
     int *max = std::max_element(std::begin(count_colors), std::end(count_colors));
     int new_color = max-count_colors;

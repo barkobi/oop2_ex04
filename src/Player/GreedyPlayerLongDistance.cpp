@@ -4,8 +4,8 @@ GreedyPlayerLongDistance::GreedyPlayerLongDistance() : Player() {}
 
 Colors GreedyPlayerLongDistance::play(Colors color, Colors *lastChoosed) {
     int count_colors[NUM_OF_COLORS] = {0};
-    std::queue<std::shared_ptr<Pad>> q;
-    std::set<std::shared_ptr<Pad>> s;
+    std::queue<MosaicNode<std::shared_ptr<Shapes>>> q;
+    std::set<MosaicNode<std::shared_ptr<Shapes>>> s;
 
     count_colors[lastChoosed[0]] = (NUM_OF_ROWS * NUM_OF_COLS) * -1;
     count_colors[lastChoosed[1]] = (NUM_OF_ROWS * NUM_OF_COLS) * -1;
@@ -14,10 +14,10 @@ Colors GreedyPlayerLongDistance::play(Colors color, Colors *lastChoosed) {
 
     while (!q.empty()) {
         auto front = q.front();
-        count_colors[front->getColor()]++;
-        for (auto &neighbor: *front->getNeighbor()) {
-            if (neighbor && !s.contains(neighbor) &&
-                (front->getColor() == m_color || front->getColor() == neighbor->getColor())) {
+        count_colors[front.data->getColor()]++;
+        for (auto &neighbor: front->getNeighbor()) {
+            if (neighbor.data && !s.contains(neighbor) &&
+                (front.data->get()->getColor() == m_color || front.data->get()->getColor() == neighbor.data->get()->getColor())) {
                 q.push(neighbor);
                 s.insert(neighbor);
             }
